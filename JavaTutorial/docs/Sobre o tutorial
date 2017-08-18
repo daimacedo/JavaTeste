@@ -1,0 +1,50 @@
+OVERLOADING METHODS
+
+Os metodos overloading são sobrecarregados dentro da mesma classe de 3 formas.
+
+1- Tenho o mesmo nome de metodo porém com argumentos de tipos diferentes
+2- Tenho o mesmo nome de metodo porém com quantidade de argumentos diferentes
+3- Tenho o mesmo nome de metodo com a mesma quantidade e mesmo tipo de metodo porém em ordem diferente.
+
+esses metodos são escritos na mesma classe.
+
+OVERRIDING METHODS
+
+1- Devo sempre ter uma classe mae e uma classe filha que estende a mae
+2- O metodo da classe filha de ter exatamente a assinatura do metodo da classe mae (com mesmos argumentos e mesmo tipo de retorno)
+3- No overriding na classe filha eu nao posso restringir permissoes que vem da classe mae (por exemplo se na classe mae o metodo eh publico eu nao posso criar esse metodo private na classe filha)
+4- O metodo da classe mae pode ser mais restritivo que o metodo sobrescrito da classe filha (criar por exemplo um metodo private na classe mae e sobrescrever ele como public na classe filha é permitido)
+5- Metodos e atributos estaticos nao estao visiveis para outras classes, pertecem somente a classe em que foram criados, caso eu crie um metodo estatico na classe mae, mesmo q eu defina o mesmo metodo na classe filha, ele nao esta sobrescrevendo, ele esta criando um novo metodo porque o metodo estatico da classe mae não é visivel na classe filha.
+6- Eu posso instanciar um objeto da classe filha apontando para a classe mae exemplo
+
+
+Nesse caso se eu fizer o seguinte
+
+
+public class mae{
+	
+	public void teste()
+	{
+		system.out.println("teste de classe mae");
+	}
+
+	public void metodosonamae()
+	{
+		system.out.println("esse methodo só existe na mae");
+	}
+
+public class filha extends mae{
+	
+	@overriding
+	public void teste()
+	{
+		system.out.println("teste de classe filha");
+	}
+
+Quando eu criar uma nova instancia referenciando a classe mae posso chamar metodos de ambas
+
+ClasseMae c1 = new ClasseFilha();
+c1.metodosonamae();
+c1.teste();
+
+No caso do primeiro metodo ele vai vir com o valor da classe mae, porém o segundo metodo virá da classe filha, pois ele foi sobrescrito na classe filha.
